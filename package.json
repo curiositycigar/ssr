@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/curiositycigar/ssr/issues"
   },
-  "homepage": "https://github.com/curiositycigar/ssr#readme"
+  "homepage": "https://github.com/curiositycigar/ssr#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "vue": "^2.5.13",
+    "vue-server-renderer": "^2.5.13",
+    "vuex": "^3.0.1"
+  }
 }
