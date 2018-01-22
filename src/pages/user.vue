@@ -6,7 +6,12 @@ create by YOU
 </template>
 
 <script type="text/babel">
-  export default {};
+  export default {
+    asyncData ({store, route}) {
+      // 触发 action 后，会返回 Promise
+      return store.dispatch('fetchItem', route.params.id)
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

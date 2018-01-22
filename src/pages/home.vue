@@ -2,7 +2,7 @@
 create by YOU
 */
 <template>
-  HOME Page
+  <div>HOME Page</div>
 </template>
 
 <script type="text/babel">

@@ -9,7 +9,19 @@ Vue.use(Vuex)
 export function createStore() {
   return new Vuex.Store({
     state: {},
-    actions: {},
+    actions: {
+      fetchItem(id) {
+        return new Promise(function (resolve, reject) {
+          if (id) {
+            setTimeout(function () {
+              resolve({data: {a: id}})
+            })
+          } else {
+            reject({data: {error: 'Error'}})
+          }
+        })
+      }
+    },
     mutations: {}
   })
 }

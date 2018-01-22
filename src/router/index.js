@@ -4,8 +4,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const Home = () => import('../pages/home')
-const User = () => import('../pages/user')
+let Home = () => import('../pages/home')
+let User = () => import('../pages/user')
 // import Home = () => {}
 
 Vue.use(Router)
@@ -21,7 +21,7 @@ export function createRouter() {
       {
         name: 'User',
         component: User,
-        path: '/user'
+        path: '/user/:id'
       }
     ]
   })
