@@ -5,6 +5,14 @@ import {createApp} from './app'
 export default context => {
   return new Promise((resolve, reject) => {
     const {app, router, store} = createApp()
+
+    const { url } = context
+    const { fullPath } = router.resolve(url).route
+
+    if (fullPath !== url) {
+      return reject({ url: fullPath })
+    }
+
     // 设置服务端router的位置
     router.push(context.url)
     // 等到 router 将可能的异步组件和钩子函数解析完

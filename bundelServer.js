@@ -3,12 +3,11 @@
  */
 const Koa = require('koa')
 const {createBundleRenderer} = require('vue-server-renderer')
-const renderer = createBundleRenderer('./src/vue-ssr-server-bundle.json', {
+const renderer = createBundleRenderer('./dist/vue-ssr-server-bundle.json', {
   runInNewContext: false, // 推荐
   template: require('fs').readFileSync('./index.template.html', 'utf-8')
   // clientManifest // （可选）客户端构建 manifest
 })
-const createApp = require('./src/main')
 const server = new Koa()
 
 server.use(async (ctx, next) => {
@@ -16,8 +15,8 @@ server.use(async (ctx, next) => {
     title: 'SSR',
     url: ctx.request.url
   }
-  const app = createApp(context)
-  renderer.renderToString(app, context, (err, html) => {
+  renderer.renderToString(context, (err, html) => {
+    console.log('renderToString!!!!!!!!')
     if (err) {
       return ctx.throw('Internal Server Error')
     }

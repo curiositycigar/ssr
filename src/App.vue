@@ -2,11 +2,13 @@
 create by YOU
 */
 <template>
-  <div>App</div>
+  <router-view></router-view>
 </template>
 
 <script type="text/babel">
-  export default {};
+  export default {
+    name: 'app'
+  };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
