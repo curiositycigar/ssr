@@ -6,9 +6,9 @@ const {createBundleRenderer} = require('vue-server-renderer')
 const bundle = require('./dist/vue-ssr-server-bundle.json')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
 const renderer = createBundleRenderer(bundle, {
-  runInNewContext: false, // 推荐
+  runInNewContext: false, // performance
   template: require('fs').readFileSync('./index.template.html', 'utf-8'),
-  clientManifest // （可选）客户端构建 manifest
+  clientManifest // client built manifest
 })
 const server = new Koa()
 
@@ -17,11 +17,12 @@ server.use(async (ctx, next) => {
     title: 'SSR',
     url: ctx.request.url
   }
-  console.log(renderer)
+  // console.log(renderer.renderToString.toString())
   renderer.renderToString(context, (err, html) => {
-    console.log('renderToString!!!!!!!!')
+    console.log('renderToString!!!!!!!!') // this can't be execute
+    console.log(arguments) // this can't be execute
     if (err) {
-      console.log(err)
+      console.log('CONSOLE ERROR:', err)
       return ctx.throw('Internal Server Error')
     }
     ctx.response.body = html

@@ -4,8 +4,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-let Home = () => import('../pages/home')
-let User = () => import('../pages/user')
+let Home = () => import('../pages/home.vue')
+let User = () => import('../pages/user.vue')
 // import Home = () => {}
 
 Vue.use(Router)
@@ -14,14 +14,16 @@ export function createRouter() {
     mode: 'history',
     routes: [
       {
-        name: 'Home',
         component: Home,
-        path: '/'
+        path: '/home'
       },
       {
-        name: 'User',
         component: User,
-        path: '/user/:id'
+        path: '/user'
+      },
+      {
+        path: '/',
+        redirect: '/home'
       }
     ]
   })
