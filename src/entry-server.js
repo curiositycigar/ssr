@@ -16,7 +16,7 @@ export default context => {
     // 设置服务端router的位置
     router.push(context.url)
     // 等到 router 将可能的异步组件和钩子函数解析完
-    router.onReady = (() => {
+    router.onReady(() => {
       const matchedComponents = router.getMatchedComponents()
       // 找不到路由，reject，404
       if (!matchedComponents.length) {

@@ -2,7 +2,10 @@
 create by YOU
 */
 <template>
-  <router-view></router-view>
+  <div>
+    <router-link to="/user">User</router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script type="text/babel">

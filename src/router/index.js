@@ -1,8 +1,8 @@
 /**
  * Created by YOU on 2018/1/16.
  */
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
 let Home = () => import('../pages/home.vue')
 let User = () => import('../pages/user.vue')
@@ -19,7 +19,7 @@ export function createRouter() {
       },
       {
         component: User,
-        path: '/user'
+        path: '/user/:name?'
       },
       {
         path: '/',
