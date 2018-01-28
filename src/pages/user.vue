@@ -26,7 +26,7 @@ create by YOU
     methods: {
       goto() {
         console.log('goto home')
-//        this.$router.push('home')
+        this.$router.push('/home')
       }
     }
   }

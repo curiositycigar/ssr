@@ -2,7 +2,9 @@
  * Created by YOU on 2018/1/22.
  */
 const Koa = require('koa')
+const KoaRouter = require('koa-router')
 const fs = require('fs')
+const mime = require('mime')
 const {createBundleRenderer} = require('vue-server-renderer')
 const bundle = require('./dist/vue-ssr-server-bundle.json')
 const clientManifest = require('./dist/vue-ssr-client-manifest.json')
@@ -12,6 +14,19 @@ const renderer = createBundleRenderer(bundle, {
   clientManifest // client built manifest
 })
 const server = new Koa()
+
+server.use(async (ctx, next) => {
+  if (ctx.request.path.startsWith('/dist')) {
+    try {
+      ctx.response.type = mime.getType('./' + ctx.request.path)
+      ctx.response.body = fs.readFileSync('./' + ctx.request.path)
+    } catch (e) {
+      ctx.response.status = 404
+    }
+  } else {
+    await next()
+  }
+})
 
 server.use(async (ctx, next) => {
   const context = {
