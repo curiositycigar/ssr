@@ -6,8 +6,16 @@ import App from './App.vue'
 import {sync} from 'vuex-router-sync'
 import {createRouter} from './router'
 import {createStore} from './store'
-// 导出一个工厂函数，用于创建新的
-// 应用程序、router 和 store 实例
+
+// import {
+//   Button
+// } from 'element-ui'
+// Vue.use(Button)
+
+import ElementUi from 'element-ui'
+Vue.use(ElementUi)
+// import 'element-ui/lib/theme-chalk/index.css'
+
 export function createApp() {
   const router = createRouter()
   const store = createStore()

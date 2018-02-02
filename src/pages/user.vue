@@ -3,7 +3,7 @@ create by YOU
 */
 <template>
   <div>
-    <button @click="goto">goto home</button>
+    <el-button @click="goto">goto Home</el-button>
     <div>i'm user {{name}}</div>
   </div>
 </template>

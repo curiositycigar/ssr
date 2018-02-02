@@ -43,13 +43,5 @@ server.use(async (ctx, next) => {
       resolve(html)
     })
   })
-  // renderer.renderToString(context, async (err, html) => {
-  //   console.log('renderToString!!!!!!!!', html) // this can't be execute
-  //   if (err) {
-  //     console.log('CONSOLE ERROR:', err)
-  //     return ctx.throw('Internal Server Error lalala')
-  //   }
-  //   ctx.response.body = html
-  // })
 })
 server.listen(8088)
